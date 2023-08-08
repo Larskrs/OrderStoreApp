@@ -1,18 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import {RAPID_API_KEY} from '@env'
+import {WOOCOMMERCE_CONSUMER_KEY, WOOCOMMERCE_CONSUMER_SECRET} from '@env'
 
-const useFetch = (endpoint, query) => {
+const useWoo = (endpoint, query) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const options = {
     method: "GET",
-    url: `https://jsearch.p.rapidapi.com/${endpoint}`,
+    url: `https://planbit.no/wp-json/wc/v3/${endpoint}?consumer_key=${WOOCOMMERCE_CONSUMER_KEY}&consumer_secret=${WOOCOMMERCE_CONSUMER_SECRET}`,
     headers: {
-        'X-RapidAPI-Key': "RAPID_API_KEY",
-        'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+
     },
     params: { ...query },
   };
@@ -23,7 +22,7 @@ const useFetch = (endpoint, query) => {
     try {
       const response = await axios.request(options);
 
-      setData(response.data.data);
+      setData(response.data);
       setIsLoading(false);
     } catch (error) {
       setError(error);
@@ -45,4 +44,4 @@ const useFetch = (endpoint, query) => {
   return { data, isLoading, error, refetch };
 };
 
-export default useFetch;
+export default useWoo;
