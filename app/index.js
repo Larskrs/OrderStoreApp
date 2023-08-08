@@ -5,6 +5,8 @@ import { Stack, useRouter } from "expo-router"
 import { COLORS, icons, images, SIZES } from "../constants"
 import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, WelcomeScreen } from "../components"
 
+import { WOOCOMMERCE_CONSUMER_KEY, WOOCOMMERCE_CONSUMER_SECRET } from "@env"
+
 const Home = () => {
     const router = useRouter();
     return (
@@ -30,9 +32,12 @@ const Home = () => {
                         padding: SIZES.medium
                     }}
                 >
+
                     <Welcome 
                     
                     />
+
+                    {/* <Text>{WOOCOMMERCE_CONSUMER_KEY} {WOOCOMMERCE_CONSUMER_SECRET}</Text> */}
 
                     <Popularjobs />
                     <Nearbyjobs />

@@ -7,7 +7,12 @@ import { checkImageURL } from '../../../../utils'
 import styles from './recentOrdersCard.style'
 import { FlatList } from 'react-native-gesture-handler'
 
+import { useRouter } from 'expo-router'
+
 const RecentOrdersCard = ({ order, selectedJob, handleCardPress }) => {
+
+  const router = useRouter();
+
   return (
     <TouchableOpacity 
       style={[styles.container(selectedJob, order), {backgroundColor: COLORS.white, borderWidth: 0}]}
@@ -20,7 +25,8 @@ const RecentOrdersCard = ({ order, selectedJob, handleCardPress }) => {
           keyExtractor={item => item?.id}
           contentContainerStyle={{columnGap: SIZES.medium}}
           renderItem={({item}) =>
-          (<TouchableOpacity style={[styles.logoContainer(selectedJob, order), {width: 75 ,height: 75}]} 
+          (<TouchableOpacity style={[styles.logoContainer(selectedJob, order), {width: 75 ,height: 75}]}
+          onPress={() => {router.push(`/product/${item.product_id}`)}} 
             >
                   <Image 
                     source={{ uri: item.image.src}}

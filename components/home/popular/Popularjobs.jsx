@@ -15,12 +15,9 @@ const Popularjobs = () => {
   const router = useRouter()
   
   const { data, isLoading, error } = useWoo
-    ('orders', {
-      query: 'React Native',
-      num_pages: 1,
-    })
+    ('orders', {})
 
-    console.log(JSON.stringify(data, null, 1))
+    // console.log(JSON.stringify(data, null, 1))
 
 
   return (
@@ -42,7 +39,7 @@ const Popularjobs = () => {
               <RecentOrdersCard 
                 order={item}
                 handleCardPress={() => {
-                  Linking.openURL(`${item._links.self[0].href}?consumer_key=${WOOCOMMERCE_CONSUMER_KEY}&consumer_secret=${WOOCOMMERCE_CONSUMER_SECRET}`)
+                  
                 }}
               />
             )}

@@ -26,7 +26,9 @@ const useWoo = (endpoint, query) => {
       setIsLoading(false);
     } catch (error) {
       setError(error);
-      console.log(error)
+      console.error(options.url)
+      console.error(error)
+      console.log({response})
     } finally {
       setIsLoading(false);
     }
