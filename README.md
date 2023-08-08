@@ -1,14 +1,8 @@
-# Expo Router Example
+# Env file setup
 
-Use [`expo-router`](https://expo.github.io/router) to build native navigation using files in the `app/` directory.
 
-## 🚀 How to use
-
-```sh
-npx create-expo-app -e with-router
+``  Woocommerce site / dashboard -> woocommerce -> settings -> Rest Api -> Create Key ``
+```env
+WOOCOMMERCE_CONSUMER_KEY="ck_???"
+WOOCOMMERCE_CONSUMER_SECRET="cs_???"
 ```
-
-## 📝 Notes
-
-- [Expo Router: Docs](https://expo.github.io/router)
-- [Expo Router: Repo](https://github.com/expo/router)
