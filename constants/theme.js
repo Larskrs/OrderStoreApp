@@ -3,11 +3,20 @@ const COLORS = {
   secondary: "#444262",
   tertiary: "#FF7754",
 
+  lightPrimary: "#3bc",
+
   gray: "#83829A",
   gray2: "#C1C0C8",
 
   white: "#F3F4F8",
   lightWhite: "#FAFAFC",
+
+  stockStatus(status) {
+    if (status == "outofstock") return this.tertiary
+    if (status == "") return this.tertiary
+    if (status == "onbackorder") return this.secondary
+    if (status == "instock") return this.lightPrimary
+  }
 };
 
 const FONT = {

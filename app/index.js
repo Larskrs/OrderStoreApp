@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { View, Text, ScrollView, SafeAreaView } from "react-native"
+import { View, Text, ScrollView, SafeAreaView, Linking } from "react-native"
 import { Stack, useRouter } from "expo-router"
 
 import { COLORS, icons, images, SIZES } from "../constants"
 import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, WelcomeScreen } from "../components"
 
 import { WOOCOMMERCE_CONSUMER_KEY, WOOCOMMERCE_CONSUMER_SECRET } from "@env"
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = () => {
     const router = useRouter();
@@ -36,6 +37,8 @@ const Home = () => {
                     <Welcome 
                     
                     />
+
+                    <TouchableOpacity onPress={() => {router.push("/test")}}><Text>Åpne Test</Text></TouchableOpacity>
 
                     {/* <Text>{WOOCOMMERCE_CONSUMER_KEY} {WOOCOMMERCE_CONSUMER_SECRET}</Text> */}
 
