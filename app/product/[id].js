@@ -106,13 +106,15 @@ const ProductDetails = () =>  {
                         <TouchableOpacity style={[styles.button,{backgroundColor: COLORS.stockStatus(data.stock_status)}]}><Text style={{color: "#FFF"}}>{StockSample()}</Text></TouchableOpacity>
                     </View>
                 </Animated.View>
-                <Image
-                    style={{width: "100%", height: 300, borderRadius: SIZES.medium, backgroundColor: COLORS.white}}
-                    resizeMode='cover'
-                    source = {{ uri: imageSrc }}
-                    // source={{ uri: data?.["jetpack-related-posts"]?.[0]?.img?.src }}
-                />
-                <View style={styles.descriptionContainer}>
+                <Animated.View style={style}>
+                    <Image
+                        style={{width: "100%", height: 300, borderRadius: SIZES.medium, backgroundColor: COLORS.white}}
+                        resizeMode='cover'
+                        source = {{ uri: imageSrc }}
+                        // source={{ uri: data?.["jetpack-related-posts"]?.[0]?.img?.src }}
+                    />
+                </Animated.View>
+                <View style={[styles.descriptionContainer]}>
                    <Text style={styles.productName}>{data.name}</Text>
                    <HTMLView
                        value={data?.description}

@@ -2,6 +2,8 @@ import { Stack } from "expo-router"
 import { useCallback } from "react"
 import { useFonts } from "expo-font"
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import { View } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,7 +23,10 @@ const Layout = () => {
 
 
 
-    return <Stack onLayout={onLayoutRootView} />
+    return ( <Stack onLayout={onLayoutRootView} >
+        
+    </Stack> )
+        
 }
 
 export default Layout

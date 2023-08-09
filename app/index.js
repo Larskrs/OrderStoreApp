@@ -7,6 +7,7 @@ import { Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome, WelcomeScreen } from
 
 import { WOOCOMMERCE_CONSUMER_KEY, WOOCOMMERCE_CONSUMER_SECRET } from "@env"
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 
 const Home = () => {
     const router = useRouter();
@@ -25,6 +26,8 @@ const Home = () => {
                     headerTitle: "",
                 }}
             />
+
+            <StatusBar style="dark" />
             
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View
