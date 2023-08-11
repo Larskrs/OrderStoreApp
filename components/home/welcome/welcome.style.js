@@ -53,6 +53,36 @@ const styles = StyleSheet.create({
     height: "50%",
     tintColor: COLORS.white,
   },
+  searcResultContainer: {
+    backgroundColor: "transparent",
+    marginTop: SIZES.medium,
+    borderRadius: SIZES.medium,
+    display: 'flex',
+    flexDirection: 'column',
+    columnGap: SIZES.medium,
+    rowGap: SIZES.xSmall,
+  },
+  searchItem: {
+    backgroundColor: COLORS.white,
+    padding: SIZES.xSmall,
+    borderRadius: SIZES.small,
+    display: 'flex',
+    flexDirection: 'row',
+    columnGap: SIZES.medium,
+    rowGap: SIZES.xSmall,
+    justifyContent: "space-between"
+  },
+  searchItemImage: {
+    width: 40,
+    height: 40,
+    borderRadius: SIZES.xSmall,
+  },
+  searchStorageStatus: (status) => {
+      return {
+        color: COLORS.stockStatus(status),
+        width: 150,
+      }
+  },
   tabsContainer: {
     width: "100%",
     marginTop: SIZES.medium,

@@ -7,13 +7,15 @@ const useWoo = (endpoint, query) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const urlParams = new URLSearchParams(query).toString();
+  console.log({query})
   const options = {
     method: "GET",
-    url: `https://planbit.no/wp-json/wc/v3/${endpoint}?consumer_key=${WOOCOMMERCE_CONSUMER_KEY}&consumer_secret=${WOOCOMMERCE_CONSUMER_SECRET}`,
+    url: `https://planbit.no/wp-json/wc/v3/${endpoint}?&consumer_key=${WOOCOMMERCE_CONSUMER_KEY}&consumer_secret=${WOOCOMMERCE_CONSUMER_SECRET}&${urlParams}`,
     headers: {
 
     },
-    params: { ...query },
+    params: {},
   };
 
   const fetchData = async () => {

@@ -5,6 +5,18 @@
       "bundler": "metro"
     },
     "name": "OrderStoreApp",
-    "slug": "OrderStoreApp"
+    "slug": "OrderStoreApp",
+    "expo": {
+      "plugins": [
+        [
+          "expo-media-library",
+          {
+            "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+            "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+            "isAccessMediaLocationEnabled": true
+          }
+        ]
+      ]
+    }
   }
 }

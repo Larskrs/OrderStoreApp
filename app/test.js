@@ -6,10 +6,10 @@ import Animated, {
     Easing,
   } from 'react-native-reanimated';
   import { View, Button } from 'react-native';
-  import React from 'react';
+  import { useState, useEffect } from 'react';
 import useWoo from '../hook/useWoo';
   
-  export default function AnimatedStyleUpdateExample(props) {
+  export default function AnimatedStyleUpdateExample() {
       
       const config = {
           duration: 500,
@@ -38,11 +38,12 @@ import useWoo from '../hook/useWoo';
         />
         <Button
           title="toggle"
-          onPress={() => {
-            loaded.value = !loaded.value
+          onPress={async () => {
+            
           }}
         />
       </View>
     );
   }
   
+

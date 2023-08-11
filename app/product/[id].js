@@ -3,7 +3,7 @@ import { View, Linking, Text, Image, SafeAreaView, ScrollView, ActivityIndicator
 import HTMLView from 'react-native-htmlview';
 import { Stack, useRouter, useSearchParams } from 'expo-router'
 import { useCallback, useState } from 'react'
-import { COLORS, icons, SIZES } from '../../constants'
+import { COLORS, icons, SIZES, translations } from '../../constants'
 import useWoo from '../../hook/useWoo'
 import { ScreenHeaderBtn } from '../../components'
 import { checkImageURL } from '../../utils';
@@ -45,19 +45,6 @@ const ProductDetails = () =>  {
               transform: [{translateY:  withTiming(!isLoading ? 0 : -100, config) }],
             };
           });
-
-
-          const StockSample = () => {
-            if (data.stock_status == "onbackorder") {
-                return "Tilgjengelig på fjernlager"
-            }
-            if (data.stock_status == "outofstock") {
-                return "Tomt på lager"
-            }
-            if (data.stock_status == "instock") {
-                return data.stock_quantity + " igjen på lager"
-            }
-          }
 
         const Screen = () => (
             <Stack.Screen
@@ -103,7 +90,7 @@ const ProductDetails = () =>  {
                 <Animated.View style={[{backgroundColor: COLORS.lightWhite},styles.detailsContainer, style]}>
                     <View style={styles.between}>
                         <TouchableOpacity style={styles.button} onPress={() => {Linking.openURL(data?.permalink)}}><Text>Åpne Side</Text></TouchableOpacity> 
-                        <TouchableOpacity style={[styles.button,{backgroundColor: COLORS.stockStatus(data.stock_status)}]}><Text style={{color: "#FFF"}}>{StockSample()}</Text></TouchableOpacity>
+                        <TouchableOpacity style={[styles.button,{backgroundColor: COLORS.stockStatus(data.stock_status)}]}><Text style={{color: "#FFF"}}>{translations.StockSample(data.stock_status, data.stock_quantity)}</Text></TouchableOpacity>
                     </View>
                 </Animated.View>
                 <Animated.View style={style}>
